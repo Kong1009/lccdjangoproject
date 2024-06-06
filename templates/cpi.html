@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">六大消費</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Primary Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">Warning Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Success Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Danger Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        六大消費曲線圖
+                    </div>
+                    <div class="card-body" id="chart" data-chart-type="cpi"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
+            <!-- <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        國民所得、平均每人所得
+                    </div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div> -->
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                六大消費表
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>統計期</th>
+                            <th>一.食物類</th>
+                            <th>二.衣著類(%)</th>
+                            <th>三.交通及通訊類</th>
+                            <th>四.醫藥保健類</th>
+                            <th>五.教養娛樂類</th>
+                            <th>六.雜項類</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>統計期</th>
+                            <th>一.食物類</th>
+                            <th>二.衣著類(%)</th>
+                            <th>三.交通及通訊類</th>
+                            <th>四.醫藥保健類</th>
+                            <th>五.教養娛樂類</th>
+                            <th>六.雜項類</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.統計期}}</td>
+                            <td>{{i.food}}</td>
+                            <td>{{i.clothing}}</td>
+                            <td>{{i.transportationAndCommunications}}</td>
+                            <td>{{i.medicineAndHealth}}</td>
+                            <td>{{i.educationAndEntertainment}}</td>
+                            <td>{{i.miscellaneouss}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+    {% block scripts %}
+    <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+    <script id="year_xlabels" type="application/json">{{ year_xlabels|safe }}</script>
+
+    <script id="food" type="application/json">{{ food|safe }}</script>
+    <script id="clothing" type="application/json">{{ clothing|safe }}</script>
+    <script id="transportationAndCommunications" type="application/json">{{ transportationAndCommunications|safe }}</script>
+
+    <script id="medicineAndHealth" type="application/json">{{ medicineAndHealth|safe }}</script>
+    <script id="educationAndEntertainment" type="application/json">{{ educationAndEntertainment|safe }}</script>
+    <script id="miscellaneouss" type="application/json">{{ miscellaneouss|safe }}</script>
+    <!-- <script id="perCapitaIncome" type="application/json">{{ perCapitaIncome|safe }}</script> -->
+    
+    {% endblock %}
+
+
+{% endblock %}

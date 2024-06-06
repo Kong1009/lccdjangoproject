@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">就業與失業率</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Primary Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">Warning Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Success Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Danger Card</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">View Details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        平均每人所得(年增率(%))
+                    </div>
+                    <div class="card-body" id="chart" data-chart-type="consumptionandsaving"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
+            <!-- <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar me-1"></i>
+                        國民所得、平均每人所得
+                    </div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div> -->
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                國民經濟表
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>統計期</th>
+                            <th>國民消費</th>
+                            <th>年增率(%)</th>
+                            <th>國民儲蓄</th>
+                            <th>年增率(%)</th>
+                            <th>國內投資</th>
+                            <th>年增率(%)</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>統計期</th>
+                            <th>國民消費</th>
+                            <th>年增率(%)</th>
+                            <th>國民儲蓄</th>
+                            <th>年增率(%)</th>
+                            <th>國內投資</th>
+                            <th>年增率(%)</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for i in data2 %}
+                        <tr>
+                            <td>{{i.統計期}}</td>
+                            <td>{{i.nationalConsumption}}</td>
+                            <td>{{i.nationalConsumption_annualGrowthRate}}</td>
+                            <td>{{i.nationalSavings}}</td>
+                            <td>{{i.nationalSavings_annualGrowthRate}}</td>
+                            <td>{{i.domesticInvestment}}</td>
+                            <td>{{i.domesticInvestment_annualGrowthRate}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+    {% block scripts %}
+    <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+    <script id="year_xlabels" type="application/json">{{ year_xlabels|safe }}</script>
+    <script id="nationalConsumption" type="application/json">{{ nationalConsumption|safe }}</script>
+    <script id="nationalSavings" type="application/json">{{ nationalSavings|safe }}</script>
+    <script id="domesticInvestment" type="application/json">{{ domesticInvestment|safe }}</script>
+    <!-- <script id="perCapitaIncome" type="application/json">{{ perCapitaIncome|safe }}</script> -->
+    
+    {% endblock %}
+
+
+{% endblock %}

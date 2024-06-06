@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">會員登入</h3></div>
+                                    <div class="card-body">
+                                        <form action="{% url 'checklogin' %}" method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-floating mb-3">
+                                                {% if request.COOKIES.remember_account %}
+                                                    <input class="form-control" id="inputEmail" name="email" type="email" value="{{ request.COOKIES.remember_account }}" placeholder="name@example.com" />
+                                                {% else %}
+                                                    <input class="form-control" id="inputEmail" name="email" type="email" value="{{ form_data.email }}" placeholder="name@example.com" />
+                                                {% endif %}
+                                                <label for="inputEmail">Email</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
+                                                <label for="inputPassword">密碼</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" id="inputRememberEmail" name="inputRememberEmail" type="checkbox" value="true" />
+                                                <label class="form-check-label" for="inputRememberEmail">記住帳號</label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                                <a class="small" href="#">忘記密碼?</a>
+                                                <button class="btn btn-primary" type="submit">登入</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="{% url 'register' %}">沒有會員? 建立會員!</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+        </div>
+
+
+{% endblock %}
