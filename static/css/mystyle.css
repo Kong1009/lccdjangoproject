@@ -1,3 +1,14 @@
+
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+img{
+    width: 100%;
+    vertical-align: bottom;
+}
 /* 麵包屑導航（Breadcrumb Navigation） */
 .breadcrumb {
     list-style: none;
@@ -32,7 +43,7 @@
 #theme{
     width: 70%;
     /* height: calc(100vh - 100%); */
-    height: 50vh;
+    /* height: 50vh; */
     background-color: var(--alpha);
     margin: 2em auto;
     position: relative;
@@ -61,19 +72,19 @@
     transition: transform 0.5s ease;
 }
 
-.slide{
+#theme .slide{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     min-height: 450px;
     max-height: 100%;
     overflow: hidden;
     position: relative;
 }
 
-.slide .img{
+#theme .slide .img{
     
     width: 100%;
-    height: 80%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -83,22 +94,72 @@
     animation: sliding 25s linear infinite;
 }
 
-.slide .img:nth-of-type(1){
+/* 首頁隨機文章 */
+#random_news{
+    width: 100%;
+    /* height: 20em; */
+    height: calc(50vh - 9em);
+    background-color: antiquewhite;
+}
+
+.news{
+    width: 90%;
+    height: 7em;
+    margin: 1em auto;
+    background-color: red;
+}
+
+.news .news_title{
+    width: 75%;
+    height: 100%;
+    padding: 0 5em;
+    line-height: 7em;
+}
+
+.news .news_title h2{
+    line-height: 3.5em;
+}
+
+.news .news_img{
+    width: 25%;
+    height: 100%;
+}
+
+/* #random_news .news_title{
+    width: 40%;
+    height: 5em;
+}
+
+#random_news .news_img{
+    width: 30%;
+    height: 5em;
+} */
+
+.news .news_img img{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background-position: center;
+    background-size: cover;
+
+}
+
+#theme .slide .img:nth-of-type(1){
     background-image: url(https://picsum.photos/800/800?random=1);
 }
-.slide .img:nth-of-type(2){
+#theme .slide .img:nth-of-type(2){
     background-image: url(https://picsum.photos/800/800?random=2);
     animation-delay: 5s;        
 }
-.slide .img:nth-of-type(3){
+#theme .slide .img:nth-of-type(3){
     background-image: url(https://picsum.photos/800/800?random=3); 
     animation-delay: 10s;
 }
-.slide .img:nth-of-type(4){
+#theme .slide .img:nth-of-type(4){
     background-image: url(https://picsum.photos/800/800?random=4);
     animation-delay: 15s;        
 }
-.slide .img:nth-of-type(5){
+#theme .slide .img:nth-of-type(5){
     background-image: url(https://picsum.photos/800/800?random=5);
     animation-delay: 20s; 
 }
