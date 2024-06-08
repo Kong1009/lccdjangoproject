@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
+
+
 from .models import Members
 import hashlib
+import re
 
-myapp = "myapp"
-# Create your views here.
+    
+    
 def createMember(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -13,32 +16,44 @@ def createMember(request):
         password = request.POST.get("password")
         checkpassword = request.POST.get("checkpassword")
 
-        
         form_data = {
             'username': username,
             'userEmail': email,
         }
         
-        # 前端檢查密碼的部分暫時先跳過
-        if password == checkpassword:        
-            objects = Members.objects.filter(userEmail = email).exists()
-            
-        
+        pattern = "^\w+@\w+\.com$"
+        match = re.findall(pattern, email)
+    
+
+        if password == checkpassword:
+            objects = Members.objects.filter(email=email).exists()
+
             if objects:
-                msg = email+"已存在"
+                msg = email + "已存在"
             else:
-                
+                # 使用 sha3_256 哈希加密密碼
                 password = hashlib.sha3_256(password.encode(encoding='utf-8')).hexdigest()
+                # 創建會員
                 member = Members(
-                    username = username,
-                    userEmail = email,
-                    userPassword = password
-                    )
-                
+                    username=username,
+                    email=email,
+                    password=password                    
+                )
                 member.save()
-                msg = "恭喜您已註冊完成"
+
+
+
+                msg = "恭喜您已註冊完成，請檢查您的郵箱以完成驗證。"
+                messages.success(request, "帳號註冊完成")
+                return redirect('myapp:home')  # 重定向到注册页面，以显示成功消息
         else:
             msg = "請確認密碼是否一致!!!!"
+
+
+    else:
+        msg = ""
+        form_data = {}
+
     return render(request, "register.html", {"msg": msg, "form_data": form_data})
 
 def checklogin(request):
@@ -49,24 +64,24 @@ def checklogin(request):
         password = hashlib.sha3_256(password.encode(encoding='utf-8')).hexdigest()
 
         try:
-            member = Members.objects.get(userEmail = email)
+            member = Members.objects.get(email = email)
         except:
             messages.error(request, "帳號未註冊")
             return redirect("login")
         
         
-        if member.userPassword != password:
+        if member.password != password:
             messages.error(request, "密碼錯誤，請重新輸入")
             return redirect("login")
         
         
         # response = redirect("myapp:home")
         response = redirect("myapp:home")
-
+        
         if remember_account:
             response.set_cookie("remember_account", email, max_age=3600)
         request.session["user_email"] = email
-
+        messages.success(request, "歡迎登入{}".format(member.username))
         return response
             
 def logout(request):

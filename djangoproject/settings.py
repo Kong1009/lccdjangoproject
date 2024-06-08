@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-qxz2z_$8r9)lv4kmcb7ds%o$gx98g2*q5e)%s1p^kxflw-fn17
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8243-106-1-128-196.ngrok-free.app"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -52,6 +52,25 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 
 ]
+
+# email 伺服器 - gmail
+EMAIL_HOST = "smtp.gmail.com"
+# 帳號
+EMAIL_HOST_USER = "destroyer135791"
+# 密碼
+# google的應用程式密碼 在自己的帳戶管理中的兩步驟驗證中 最底下(若密碼忘記需重新建立) 
+# 建立完會有空白 -> sebb hjpn zwjj udfv
+EMAIL_HOST_PASSWORD = "sebbhjpnzwjjudfv"
+# PROT
+EMAIL_PORT = "465"
+# 安全性
+EMAIL_USE_SSL = "True"
+
+ADMINS = (('destroyer135791', 'destroyer135791@gmail.com'),)
+
+MANAGERS = (('destroyer135791', 'destroyer135791@gmail.com'),)
+DEFAULT_FROM_EMAIL = 'destroyer135791@gmail.com'
+
 
 ROOT_URLCONF = "djangoproject.urls"
 

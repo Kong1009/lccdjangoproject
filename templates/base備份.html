@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-hant">
+<html lang="en">
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         {% load static %}
-        
-        <title>
-            {% block title %}
-            {% endblock %}
-        </title>
+        <title>台灣國民經濟歷史指數</title>
         <link rel="icon" href="{% static 'icon/2634432_ensign_flag_nation_taiwan_icon.svg' %}">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-        {% block css %}
-        {% endblock %}
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    
-    {% block scripts %}
-        
-    {% endblock %}
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
@@ -100,6 +89,25 @@
                                     <a class="nav-link" href="#">國際</a>
                                     <a class="nav-link" href="#">國內</a>
                                     <a class="nav-link" href="#">...</a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="#">時事</a>
+                                            <a class="nav-link" href="#">國際</a>
+                                            <a class="nav-link" href="#">國內</a>
+                                            <a class="nav-link" href="#">...</a>
+                                        </nav>
+                                    </div>
+                                    <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="#">401 Page</a>
+                                            <a class="nav-link" href="#">404 Page</a>
+                                            <a class="nav-link" href="#">500 Page</a>
+                                        </nav>
+                                    </div> -->
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">其他資訊</div>
@@ -168,3 +176,7 @@
 
     </body>
 </html>
+
+{% block scripts %}
+    
+{% endblock %}

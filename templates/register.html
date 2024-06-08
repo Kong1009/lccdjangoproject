@@ -1,24 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% block scripts %}
-<script>
-    function checkPwd(){
-        var p = document.getElementById("password").value;
-        var p2 = document.getElementById("checkpassword").value;
 
-        if (p == p2){
-            return true;
-            alert("test");
-        }else{
-            alert("密碼確認錯誤，請重新確認");
-            return false;
-        }
-
-
-    }
-</script>
-{% endblock %}
 <h1>{{msg}}</h1>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
@@ -29,7 +12,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">會員註冊</h3></div>
                                     <div class="card-body">
-                                        <form id="registrationForm" action="{% url 'creatMember' %}" method="post" onsubmit="return checkPwd()">
+                                        <form id="registrationForm" class="register_form" action="{% url 'creatMember' %}" method="post" onsubmit="return checkPwd()">
                                             {% csrf_token %}
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="username" value="{{ form_data.username }}" name="username" type="text" placeholder="使用者名稱" />
@@ -76,4 +59,23 @@
 
 
 
+{% block scripts %}
+<script>
+    
+    function checkPwd(){
+        var p = document.getElementById("inputPassword").value;
+        var p2 = document.getElementById("inputPasswordConfirm").value;
+
+        if (p == p2){
+            return true;
+            alert("test");
+        }else{
+            alert("密碼確認錯誤，請重新確認");
+            return false;
+        }
+
+
+    }
+</script>
+{% endblock %}
 {% endblock %}
