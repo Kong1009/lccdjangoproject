@@ -1,0 +1,34 @@
+#economy_title{
+    width: 100%;
+    text-align: center;
+    background-color: antiquewhite;
+    margin: 2em auto;
+    padding: 2em 5em;
+}
+
+#newsDiv{
+    width: 80%;
+    /* height: 100vh; */
+    margin:0 auto;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+#newsDiv .newsitem{            
+    width: 20%;
+    background-color: red;
+    margin: 1em;
+    text-align: center;
+    border-radius: 5%;
+    overflow: hidden;
+    
+}
+.news_img{
+    width: 100%;
+}
+
+.newsitem .news_title{
+    font-size: 1.5em;
+    font-family: sans-serif;
+    padding: 0.5em 0;
+}

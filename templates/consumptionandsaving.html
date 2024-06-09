@@ -126,21 +126,3 @@
 
 
 {% endblock %}
-{% block scripts %}
-<script>
-    function checkPwd(){
-        var p = document.getElementById("password").value;
-        var p2 = document.getElementById("checkpassword").value;
-
-        if (p == p2){
-            return true;
-            alert("test");
-        }else{
-            alert("密碼確認錯誤，請重新確認");
-            return false;
-        }
-
-
-    }
-</script>
-{% endblock %}

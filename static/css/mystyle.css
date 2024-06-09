@@ -1,4 +1,12 @@
-
+html, body, header, footer, aside, main, article, menu, nav, p, a, b, i, u, h1, h2, h3, h4, h5, h6, div, span, img, table, ul, li{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    font-family: "Noto Sans TC", sans-serif;
+}
 
 .flex{
     display: flex;
@@ -9,6 +17,15 @@ img{
     width: 100%;
     vertical-align: bottom;
 }
+
+/* 其他資訊 */
+#otherDiv{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
 /* 麵包屑導航（Breadcrumb Navigation） */
 .breadcrumb {
     list-style: none;
@@ -50,7 +67,6 @@ img{
 }
 .img .push{
     width: 50%;
-    /* height: 100%; */
     background-color: var(--alpha);
     position: absolute;        
     bottom: 3em;
@@ -98,13 +114,13 @@ img{
 #random_news{
     width: 100%;
     /* height: 20em; */
-    height: calc(50vh - 9em);
+    height: calc(50vh - 6em);
     background-color: antiquewhite;
 }
 
-.news{
+#random_news .news{
     width: 90%;
-    height: 7em;
+    height: 30%;
     margin: 1em auto;
     background-color: red;
 }
