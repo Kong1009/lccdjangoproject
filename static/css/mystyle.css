@@ -114,12 +114,12 @@ img{
 #random_news{
     width: 100%;
     /* height: 20em; */
-    height: calc(50vh - 6em);
+    /* height: calc(50vh - 6em); */
     background-color: antiquewhite;
 }
 
 #random_news .news{
-    width: 90%;
+    width: 75%;
     height: 30%;
     margin: 1em auto;
     background-color: red;
@@ -152,9 +152,7 @@ img{
 } */
 
 .news .news_img img{
-    width: 100%;
     height: 100%;
-    max-width: 100%;
     background-position: center;
     background-size: cover;
 

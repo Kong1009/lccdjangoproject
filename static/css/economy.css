@@ -17,12 +17,18 @@
 #newsDiv .newsitem{            
     width: 20%;
     background-color: red;
-    margin: 1em;
+    margin: 1.5em;
     text-align: center;
     border-radius: 5%;
-    overflow: hidden;
-    
+    overflow: hidden;    
 }
+
+#newsDiv .newsitem:hover{
+    transform: scale(1.1);
+    /* transform-origin: center; */
+    transition: transform 1s ease;
+}
+
 .news_img{
     width: 100%;
 }
