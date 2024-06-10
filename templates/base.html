@@ -14,6 +14,7 @@
         </title>
         <link rel="icon" href="{% static 'icon/8396402_graph_chart_data_analytics_statistic_icon.svg' %}">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="{% static 'css/load.css' %}" rel="stylesheet" />
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <link href="{% static 'css/mystyle.css' %}" rel="stylesheet" />
         {% block css %}
@@ -100,27 +101,27 @@
                                 <div class="sb-sidenav-menu-heading">其他資訊</div>
                                 <a class="nav-link" href="401.html">
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-handshake fa-2x"></i></div>
-                                    幫助中心
+                                    <del style="color: red">幫助中心</del>
                                 </a>
                                 <a class="nav-link" href="#">
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-building fa-2x"></i></div>
-                                    異業合作
+                                    <del style="color: red">異業合作</del>
                                 </a>
                                 <a class="nav-link" href="#">
                                     <div class="sb-nav-link-icon"><i class="fa-solid fa-child-reaching fa-2x"></i></i></div>
-                                    新手教學
+                                    <del style="color: red">新手教學</del>
                                 </a>
                                 <a class="nav-link" href="#">
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-address-card fa-2x"></i></div>
-                                    關於我們
+                                    <del style="color: red">關於我們</del>
                                 </a>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{% url 'contact' %}">
                                     <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book fa-2x"></i></div>
                                     聯絡我們
                                 </a>
                                 <a class="nav-link" href="#">
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-circle-question fa-2x"></i></div>
-                                    FAQs
+                                    <del style="color: red">FAQs</del>
                                 </a>
                             </div>
                         </div>
@@ -138,18 +139,11 @@
                 </ul>
                 {% endif %}
 
-                <nav aria-label="breadcrumb">
-                    <ul class="breadcrumb">
-                        <li><a href="#">首頁</a></li>
-                        <li><a href="#">商品</a></li>
-                        <li>類別</li>
-                    </ul>
-                </nav>
 
                 {% block content %}
 
                 {% endblock %}
-                {{request.}}
+
                 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -167,7 +161,9 @@
         </div>
 
 
-
-        <script src="{% static 'js/base.js' %}"></script>
+        <div id="load">
+            <div class="loading"></div>
+        </div>
+        <script src="{% static 'js/load.js' %}"></script>
     </body>
 </html>
