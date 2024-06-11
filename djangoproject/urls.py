@@ -24,6 +24,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("myapp/", include("myapp.urls")),
     path("members/", include("members.urls")),
-    path("article/", include("article.urls")),
-    path("othersapp/", include("othersapp.urls"))
+    path("othersapp/", include("othersapp.urls")),
+    path("news/", include("news.urls")),
+    path("webcrawler/", include("webcrawler.urls")),
 ]

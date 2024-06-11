@@ -84,22 +84,23 @@ img{
 /* 首頁隨機文章 */
 #random_news{
     width: 100%;
-    /* height: 20em; */
-    /* height: calc(50vh - 6em); */
     background-color: antiquewhite;
 }
 
 #random_news .news{
     width: 75%;
+    height: 20vh;
     margin: 1em auto;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .news .news_title{
     width: 75%;
     height: 100%;
-    padding: 0 5em;
-    line-height: 7em;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    justify-content: flex-start;
 }
 
 .news .news_title h2{
@@ -192,25 +193,26 @@ img{
 
     #random_news .news{
         width: 40%;
-        height: 30%;
+        height: 20vh;
         margin: 1em auto;
-        background-color: red;
+        /* background-color: red; */
     }
 
     .news .news_title{
-        width: 75%;
+        width: 50%;
         height: 100%;
-        padding: 0 5em;
-        line-height: 7em;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .news .news_title h2{
-        line-height: 3.5em;
+        line-height: 1.5em;
     }
 
     .news .news_img{
-        width: 25%;
+        width: 50%;
         height: 100%;
+        object-fit: cover;
     }
 
     /* #random_news .news_title{

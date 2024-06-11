@@ -6,8 +6,16 @@ from django.conf import settings
 import os
 
 from .models import National_Data
+from news.models import News
 import pandas as pd
 import json
+
+def index(request):
+    # newsdata = News.objects.all()
+    newsdata = News.objects.order_by("?")[:6]
+
+    
+    return render(request, "index.html", {"newsdata": newsdata})
 
 # 存到資料庫的用法
 # def index(request):
@@ -36,14 +44,7 @@ def employment_unemployment(request):
     # 男女就業與失業
     csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'Employment and Unemployment.csv')
     
-    # 檢測文件編碼
-    # with open(csv_path2, 'rb') as f:
-    #     raw_data = f.read()
-    #     result = chardet.detect(raw_data)
-    #     encoding = result['encoding']
-    #     print(f"Detected encoding: {encoding}")
-    # 明天先解掉 pip uninstall chardet
-    
+
     # 读取 CSV 文件
     data1 = pd.read_csv(csv_path1, encoding="utf-8")
     data2 = pd.read_csv(csv_path2, encoding="big5", skiprows=3)
@@ -92,58 +93,58 @@ def employment_unemployment(request):
     return render(request, "employment_unemployment.html")
 
 # 外部csv檔的抓取
-def index(request):
-    # 人均收入csv
-    # data1 = pd.read_csv("NationalIncomeStatistics(perCapitaIncome).csv", encoding="big5", skiprows=2)
+# def index(request):
+#     # 人均收入csv
+#     # data1 = pd.read_csv("NationalIncomeStatistics(perCapitaIncome).csv", encoding="big5", skiprows=2)
     
-    # # 儲蓄與消費
-    # data2 = pd.read_csv("nationalIncome_SavingsAndInvestment.csv", encoding="big5", skiprows=2)
-    # data1=data1[:-2]
-    # data2=data2[:-2]
+#     # # 儲蓄與消費
+#     # data2 = pd.read_csv("nationalIncome_SavingsAndInvestment.csv", encoding="big5", skiprows=2)
+#     # data1=data1[:-2]
+#     # data2=data2[:-2]
     
-    csv_path1 = os.path.join(settings.BASE_DIR, 'static', 'NationalIncomeStatistics(perCapitaIncome).csv')
-    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'nationalIncome_SavingsAndInvestment.csv')
+#     csv_path1 = os.path.join(settings.BASE_DIR, 'static', 'NationalIncomeStatistics(perCapitaIncome).csv')
+#     csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'nationalIncome_SavingsAndInvestment.csv')
 
-    # 读取 CSV 文件
-    data1 = pd.read_csv(csv_path1, encoding="big5", skiprows=2)
-    data2 = pd.read_csv(csv_path2, encoding="big5", skiprows=3)
+#     # 读取 CSV 文件
+#     data1 = pd.read_csv(csv_path1, encoding="big5", skiprows=2)
+#     data2 = pd.read_csv(csv_path2, encoding="big5", skiprows=3)
     
-    data1=data1[:-3]
-    data2=data2[:-6]
-    # print(data2)
-    data2 = data2.rename(columns={"3.1國民消費": "nationalConsumption",
-                                  "年增率(%)": "nationalConsumption_annualGrowthRate",
-                                  "3.3國民儲蓄毛額:2.1+3.2": "nationalSavings",
-                                  "年增率(%).1": "nationalSavings_annualGrowthRate",
-                                  "3.5國內投資毛額":"domesticInvestment",
-                                  "年增率(%).2": "domesticInvestment_annualGrowthRate",})
+#     data1=data1[:-3]
+#     data2=data2[:-6]
+#     # print(data2)
+#     data2 = data2.rename(columns={"3.1國民消費": "nationalConsumption",
+#                                   "年增率(%)": "nationalConsumption_annualGrowthRate",
+#                                   "3.3國民儲蓄毛額:2.1+3.2": "nationalSavings",
+#                                   "年增率(%).1": "nationalSavings_annualGrowthRate",
+#                                   "3.5國內投資毛額":"domesticInvestment",
+#                                   "年增率(%).2": "domesticInvestment_annualGrowthRate",})
     
-    year_xlabels = data1['統計期'].tolist()
+#     year_xlabels = data1['統計期'].tolist()
     
-    # 線條1 國民消費
-    nationalConsumption = data2["nationalConsumption"].tolist()
+#     # 線條1 國民消費
+#     nationalConsumption = data2["nationalConsumption"].tolist()
     
-    # 線條2
-    nationalSavings = data2["nationalSavings"].tolist()
+#     # 線條2
+#     nationalSavings = data2["nationalSavings"].tolist()
     
-    # 線條3
-    domesticInvestment = data2["domesticInvestment"].tolist()
+#     # 線條3
+#     domesticInvestment = data2["domesticInvestment"].tolist()
     
-    # 線條4 - 人均收入
-    perCapitaIncome = data1['國民所得毛額GNI(名目值，百萬元)'].tolist()
-    perCapitaIncome = [data.replace(",", "") for data in perCapitaIncome]
+#     # 線條4 - 人均收入
+#     perCapitaIncome = data1['國民所得毛額GNI(名目值，百萬元)'].tolist()
+#     perCapitaIncome = [data.replace(",", "") for data in perCapitaIncome]
     
     
-    context = {
-        "year_xlabels" : json.dumps(year_xlabels),
-        "nationalConsumption": json.dumps(nationalConsumption),
-        "nationalSavings": json.dumps(nationalSavings),
-        "domesticInvestment": json.dumps(domesticInvestment),
-        "perCapitaIncome": json.dumps(perCapitaIncome),
-        "data1": data1.to_dict(orient="records"),
-        "data2": data2.to_dict(orient="records")
-        }
-    return render(request, "index.html", context)
+#     context = {
+#         "year_xlabels" : json.dumps(year_xlabels),
+#         "nationalConsumption": json.dumps(nationalConsumption),
+#         "nationalSavings": json.dumps(nationalSavings),
+#         "domesticInvestment": json.dumps(domesticInvestment),
+#         "perCapitaIncome": json.dumps(perCapitaIncome),
+#         "data1": data1.to_dict(orient="records"),
+#         "data2": data2.to_dict(orient="records")
+#         }
+#     return render(request, "index.html", context)
     # return render(request, "test.html", context)
 
 # 六大消費之趨勢

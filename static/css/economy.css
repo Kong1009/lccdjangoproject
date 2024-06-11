@@ -6,9 +6,12 @@
     padding: 2em 5em;
 }
 
+#economy_title h2{
+    font-weight: 900;
+}
+
 #newsDiv{
     width: 80%;
-    /* height: 100vh; */
     margin:0 auto;
     background-color: antiquewhite;
     text-align: center;
@@ -16,25 +19,26 @@
 
 #newsDiv .newsitem{            
     width: 20%;
-    background-color: red;
-    margin: 1.5em;
+    margin:2em 1.5em;
     text-align: center;
-    border-radius: 5%;
-    overflow: hidden;    
+
 }
 
 #newsDiv .newsitem:hover{
     transform: scale(1.1);
-    /* transform-origin: center; */
     transition: transform 1s ease;
 }
 
 .news_img{
     width: 100%;
+    height: 70%;
+}
+.news_img img{
+    height: 100%;
 }
 
 .newsitem .news_title{
-    font-size: 1.5em;
+    font-size: 1em;
     font-family: sans-serif;
     padding: 0.5em 0;
 }

@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "myapp",
     "members",
-    "article",
     "othersapp",
-    "news"
+    "news",
+    "webcrawler"
 ]
 
 MIDDLEWARE = [
