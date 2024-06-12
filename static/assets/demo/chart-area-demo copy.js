@@ -21,18 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var nationalSavings_values = JSON.parse(document.getElementById('nationalSavings').textContent);
     var domesticInvestment_values = JSON.parse(document.getElementById('domesticInvestment').textContent);
     // var perCapitaIncome_values = JSON.parse(document.getElementById('perCapitaIncome').textContent);
-  }else if (chartType === "agriculture_forestry_fishery_animalHusbandry"){
-  
-    // 获取嵌入在 HTML 中的 JSON 数据
-    var agriculture_forestry_fishery_animalHusbandry = JSON.parse(document.getElementById('agriculture_forestry_fishery_animalHusbandry').textContent);
-    var manufacturing = JSON.parse(document.getElementById('manufacturing').textContent);
-    var WholesaleandRetailTrade = JSON.parse(document.getElementById('WholesaleandRetailTrade').textContent);
-    var constructionIndustry = JSON.parse(document.getElementById('constructionIndustry').textContent);
-    var AccommodationandCateringUndustry = JSON.parse(document.getElementById('AccommodationandCateringUndustry').textContent);
-    var EducationalServiceIndustry = JSON.parse(document.getElementById('EducationalServiceIndustry').textContent);
-    var TransportationandWarehousingIndustry = JSON.parse(document.getElementById('TransportationandWarehousingIndustry').textContent);
-    var HealthcareAndSocialWorkServicesIndustry = JSON.parse(document.getElementById('HealthcareAndSocialWorkServicesIndustry').textContent);
-    var OtherServiceindustries = JSON.parse(document.getElementById('OtherServiceindustries').textContent);
   };
 
 
@@ -56,19 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
     Math.max(...medicineAndHealth),
     Math.max(...educationAndEntertainment),
     Math.max(...miscellaneouss)
-  );
-}else if (chartType === "agriculture_forestry_fishery_animalHusbandry"){
-
-  var maxDataValue = Math.max(
-    Math.max(...agriculture_forestry_fishery_animalHusbandry),
-    Math.max(...manufacturing),
-    Math.max(...WholesaleandRetailTrade),
-    Math.max(...constructionIndustry),
-    Math.max(...AccommodationandCateringUndustry),
-    Math.max(...EducationalServiceIndustry),
-    Math.max(...TransportationandWarehousingIndustry),
-    Math.max(...HealthcareAndSocialWorkServicesIndustry),
-    Math.max(...OtherServiceindustries)
   );
 };
 
@@ -168,13 +143,13 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             label: "國民消費",
             lineTension: 0.5,
-            // backgroundColor: "rgba(2,117,216,0.2)",
+            backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "red",
             pointRadius: 5,
             pointBackgroundColor: "red",
             pointBorderColor: "rgba(255,255,255,0.8)",
             pointHoverRadius: 5,
-            // pointHoverBackgroundColor: "rgba(2,117,216,1)",
+            pointHoverBackgroundColor: "rgba(2,117,216,1)",
             pointHitRadius: 50,
             pointBorderWidth: 2,
             data: nationalConsumption_values,
@@ -182,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             label: "國民儲蓄毛額",
             lineTension: 0.5,
-            // backgroundColor: "rgba(2,117,216,0.2)",
+            backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "green",
             pointRadius: 5,
             pointBackgroundColor: "green",
@@ -196,10 +171,10 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "國民儲蓄",
           lineTension: 0.5,
-          // backgroundColor: "rgba(2,117,216,0.2)",
-          borderColor: "blue",
+          backgroundColor: "rgba(2,117,216,0.2)",
+          borderColor: "red",
           pointRadius: 5,
-          pointBackgroundColor: "blue",
+          pointBackgroundColor: "red",
           pointBorderColor: "rgba(255,255,255,0.8)",
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "rgba(2,117,216,1)",
@@ -212,9 +187,9 @@ document.addEventListener('DOMContentLoaded', function () {
 }else if (chartType === "agriculture_forestry_fishery_animalHusbandry") {
   datasets = [
       {
-          label: "農、林、漁、牧業",
+          label: "國民消費",
           lineTension: 0.5,
-          // backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0.2)",
           borderColor: "red",
           pointRadius: 5,
           pointBackgroundColor: "red",
@@ -223,12 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
           pointHoverBackgroundColor: "rgba(2,117,216,1)",
           pointHitRadius: 50,
           pointBorderWidth: 2,
-          data: agriculture_forestry_fishery_animalHusbandry,
+          data: nationalConsumption_values,
       },
       {
-          label: "製造業",
+          label: "國民儲蓄毛額",
           lineTension: 0.5,
-          // backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0.2)",
           borderColor: "green",
           pointRadius: 5,
           pointBackgroundColor: "green",
@@ -237,105 +212,21 @@ document.addEventListener('DOMContentLoaded', function () {
           pointHoverBackgroundColor: "rgba(2,117,216,1)",
           pointHitRadius: 50,
           pointBorderWidth: 2,
-          data: manufacturing,
+          data: nationalSavings_values,
       },
       {
-          label: "批發及零售業",
-          lineTension: 0.5,
-          // backgroundColor: "rgba(2,117,216,0.2)",
-          borderColor: "yellow",
-          pointRadius: 5,
-          pointBackgroundColor: "yellow",
-          pointBorderColor: "rgba(255,255,255,0.8)",
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: "rgba(2,117,216,1)",
-          pointHitRadius: 50,
-          pointBorderWidth: 2,
-          data: WholesaleandRetailTrade,
-      },
-      {
-        label: "營造業",
+        label: "國民儲蓄",
         lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "blue",
+        backgroundColor: "rgba(2,117,216,0.2)",
+        borderColor: "red",
         pointRadius: 5,
-        pointBackgroundColor: "blue",
+        pointBackgroundColor: "red",
         pointBorderColor: "rgba(255,255,255,0.8)",
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "rgba(2,117,216,1)",
         pointHitRadius: 50,
         pointBorderWidth: 2,
-        data: constructionIndustry,
-    },
-      {
-        label: "住宿及餐飲業",
-        lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "Purple",
-        pointRadius: 5,
-        pointBackgroundColor: "Purple",
-        pointBorderColor: "rgba(255,255,255,0.8)",
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(2,117,216,1)",
-        pointHitRadius: 50,
-        pointBorderWidth: 2,
-        data: AccommodationandCateringUndustry,
-    },
-      {
-        label: "教育服務業",
-        lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "orange",
-        pointRadius: 5,
-        pointBackgroundColor: "orange",
-        pointBorderColor: "rgba(255,255,255,0.8)",
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(2,117,216,1)",
-        pointHitRadius: 50,
-        pointBorderWidth: 2,
-        data: EducationalServiceIndustry,
-    },
-      {
-        label: "運輸及倉儲業",
-        lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "gray",
-        pointRadius: 5,
-        pointBackgroundColor: "gray",
-        pointBorderColor: "rgba(255,255,255,0.8)",
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(2,117,216,1)",
-        pointHitRadius: 50,
-        pointBorderWidth: 2,
-        data: TransportationandWarehousingIndustry,
-    },
-      {
-        label: "醫療保健及社會工作服務業",
-        lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "gold",
-        pointRadius: 5,
-        pointBackgroundColor: "gold",
-        pointBorderColor: "rgba(255,255,255,0.8)",
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(2,117,216,1)",
-        pointHitRadius: 50,
-        pointBorderWidth: 2,
-        data: HealthcareAndSocialWorkServicesIndustry,
-    },
-      {
-        label: "其他服務業",
-        lineTension: 0.5,
-        // backgroundColor: "rgba(2,117,216,0.2)",
-        borderColor: "black",
-        pointRadius: 5,
-        pointBackgroundColor: "black",
-        pointBorderColor: "rgba(255,255,255,0.8)",
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(2,117,216,1)",
-        pointHitRadius: 50,
-        pointBorderWidth: 2,
-        data: OtherServiceindustries,
+        data: domesticInvestment_values,
     },
       // 其他資料集...
   ];

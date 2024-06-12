@@ -24,11 +24,20 @@ app_name = 'myapp'
 
 urlpatterns = [
     url(r"^index/", views.index, name="home"),
+    # url(r"^employmentPopulationByIndustry/", views.employmentPopulationByIndustry, name="employment"),
+    url(r"^employmentandUnemployment/", views.employmentandUnemployment, name="employmentandUnemployment"),
+    
+    # 就業
+    url(r"^Numberofpeopleemployedbyindustry/", views.Numberofpeopleemployedbyindustry, name="Numberofpeopleemployedbyindustry"),
+    
+    
+    # 消費與儲蓄
     url(r"^consumptionandsaving/", views.consumptionandsaving, name="consumptionandsaving"),
-    url(r"^employment_unemployment/", views.employment_unemployment, name="employment_unemployment"),
+    
+    # 六大消費
     url(r"^cpi/", views.cpi, name="cpi"),
-    url("", views.index, name='home'),
     
     
     url(r"^test/", views.test_csv),
+    url("", views.index, name='home'),
 ]

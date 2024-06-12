@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh-hant">
     <head>
         <meta charset="utf-8"/>
@@ -6,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        {% load static %}
         
         <title>
             {% block title %}
@@ -26,7 +26,6 @@
         {% block scripts %}
         
         {% endblock %}
-        
         
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
@@ -69,8 +68,6 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 圖表分類
@@ -78,11 +75,25 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">人口數</a>
-                                    <a class="nav-link" href="{% url 'myapp:employment_unemployment' %}">各產業就業失業率</a>
-                                    <a class="nav-link" href="#">年收入分佈</a>
+                                    <a class="nav-link" href="#"><del style="color: red">人口數</del></a>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        各產業就業與失業
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{% url 'myapp:Numberofpeopleemployedbyindustry' %}">各產業就業人口狀況</a>
+                                            <a class="nav-link" href="register.html">失業狀況</a>                                            
+                                        </nav>
+                                    </div>
+
+                                {# <a class="nav-link" href="{% url 'myapp:employment_unemployment' %}">各產業就業失業率</a>#}
+
+
+                                    <a class="nav-link" href="#"><del style="color: red">年收入分佈</del></a>
                                     <a class="nav-link" href="{% url 'myapp:consumptionandsaving' %}">消費與儲蓄</a>
                                     <a class="nav-link" href="{% url 'myapp:cpi' %}">CPI(6大消費之趨勢)</a>
+                                    <!-- <a class="nav-link" href="charts.html">test</a> -->
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -92,15 +103,15 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#">時事</a>
-                                    <a class="nav-link" href="#">國際</a>
-                                    <a class="nav-link" href="#">國內</a>
+                                    <a class="nav-link" href="#"><del style="color: red">時事</del></a>
+                                    <a class="nav-link" href="#"><del style="color: red">國際</del></a>
+                                    <a class="nav-link" href="#"><del style="color: red">國內</del></a>
                                     <a class="nav-link" href="{% url 'economic_articles' %}">經濟</a>
                                 </nav>
                             </div>
                             <div id="otherDiv">
                                 <div class="sb-sidenav-menu-heading">其他資訊</div>
-                                <a class="nav-link" href="401.html">
+                                <a class="nav-link" href="#">
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-handshake fa-2x"></i></div>
                                     <del style="color: red">幫助中心</del>
                                 </a>

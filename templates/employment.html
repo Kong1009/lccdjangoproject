@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+各產業就業狀況
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/industry.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">各產業就業狀況</h1>
+
+
+
+
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        各產業就業人口數(千)
+                    </div>
+                    <div class="card-body" id="chart" data-chart-type="agriculture_forestry_fishery_animalHusbandry"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                各產業就業人口表(千)
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>統計期</th>
+                            <th>農、林、漁、牧業</th>
+                            <th>礦業及土石採取業</th>
+                            <th>製造業</th>
+                            <th>電力及燃氣供應業</th>
+                            <th>用水供應及污染整治業</th>
+                            <th>營造業</th>
+                            <th>批發及零售業</th>
+                            <th>運輸及倉儲業</th>
+                            <th>住宿及餐飲業</th>
+                            <th>資訊及通訊傳播業</th>
+                            <th>金融及保險業</th>
+                            <th>不動產業</th>
+                            <th>專業、科學及技術服務業</th>
+                            <th>支援服務業</th>
+                            <th>公共行政及國防；強制性社會安全</th>
+                            <th>教育服務業</th>
+                            <th>醫療保健及社會工作服務業</th>
+                            <th>藝術、娛樂及休閒服務業</th>
+                            <th>其他服務業</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>統計期</th>
+                            <th>農、林、漁、牧業</th>
+                            <th>礦業及土石採取業</th>
+                            <th>製造業</th>
+                            <th>電力及燃氣供應業</th>
+                            <th>用水供應及污染整治業</th>
+                            <th>營造業</th>
+                            <th>批發及零售業</th>
+                            <th>運輸及倉儲業</th>
+                            <th>住宿及餐飲業</th>
+                            <th>資訊及通訊傳播業</th>
+                            <th>金融及保險業</th>
+                            <th>不動產業</th>
+                            <th>專業、科學及技術服務業</th>
+                            <th>支援服務業</th>
+                            <th>公共行政及國防；強制性社會安全</th>
+                            <th>教育服務業</th>
+                            <th>醫療保健及社會工作服務業</th>
+                            <th>藝術、娛樂及休閒服務業</th>
+                            <th>其他服務業</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for i in context.data %}
+                        <tr>
+                            <td>{{i.year}}</td>
+                            <td>{{i.agriculture_forestry_fishery_animalHusbandry}}</td>
+                            <td>{{i.miningIndustry}}</td>
+                            <td>{{i.manufacturing}}</td>
+                            <td>{{i.ElectricityandGasSupplyIndustry}}</td>
+                            <td>{{i.wastewaterIndustry}}</td>
+                            <td>{{i.constructionIndustry}}</td>
+                            <td>{{i.WholesaleandRetailTrade}}</td>
+                            <td>{{i.TransportationandWarehousingIndustry}}</td>
+                            <td>{{i.AccommodationandCateringUndustry}}</td>
+                            <td>{{i.InformationandCommunicationsIndustry}}</td>
+                            <td>{{i.FinanceandInsuranceIndustry}}</td>
+                            <td>{{i.realEstate}}</td>
+                            <td>{{i.ProfessionalScientificandTechnicalServices}}</td>
+                            <td>{{i.SupportServiceIndustry}}</td>
+                            <td>{{i.PublicAdministrationandDefence_MandatorySocialSecurity}}</td>
+                            <td>{{i.EducationalServiceIndustry}}</td>
+                            <td>{{i.HealthcareAndSocialWorkServicesIndustry}}</td>
+                            <td>{{i.ArtsEntertainmentandLeisureServices}}</td>
+                            <td>{{i.OtherServiceindustries}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+    {% block scripts %}
+    <script id="year_xlabels" type="application/json">{{ context.year_xlabels|safe }}</script>
+
+    <script id="agriculture_forestry_fishery_animalHusbandry" type="application/json">{{ context.agriculture_forestry_fishery_animalHusbandry|safe }}</script>
+    <script id="manufacturing" type="application/json">{{ context.manufacturing|safe }}</script>
+    <script id="WholesaleandRetailTrade" type="application/json">{{ context.WholesaleandRetailTrade|safe }}</script>
+    <script id="constructionIndustry" type="application/json">{{ context.constructionIndustry|safe }}</script>
+    <script id="AccommodationandCateringUndustry" type="application/json">{{ context.AccommodationandCateringUndustry|safe }}</script>
+    <script id="EducationalServiceIndustry" type="application/json">{{ context.EducationalServiceIndustry|safe }}</script>
+    <script id="TransportationandWarehousingIndustry" type="application/json">{{ context.TransportationandWarehousingIndustry|safe }}</script>
+    <script id="HealthcareAndSocialWorkServicesIndustry" type="application/json">{{ context.HealthcareAndSocialWorkServicesIndustry|safe }}</script>
+    <script id="OtherServiceindustries" type="application/json">{{ context.OtherServiceindustries|safe }}</script>
+    
+    <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+    {% endblock %}
+
+
+{% endblock %}
