@@ -21,3 +21,7 @@ def contactform(request):
         
     return redirect('contact')
 
+
+
+def about(request):
+    return render(request, "about.html")

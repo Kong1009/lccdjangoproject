@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
     datasets = [
         {
             label: "死亡總數",
+            type: "line",
             lineTension: 0.5,
             backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "red",
@@ -248,6 +249,14 @@ document.addEventListener('DOMContentLoaded', function () {
             pointHitRadius: 50,
             pointBorderWidth: 2,
             data: NumberofDeaths,
+        },
+        {
+          label: "出生總人數",
+          type: "bar",
+          backgroundColor: "rgba(75,192,192,0.2)",
+          borderColor: "rgba(75,192,192,1)",
+          borderWidth: 1,
+          data: birthRate,
         }
 
     ];

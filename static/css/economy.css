@@ -1,14 +1,3 @@
-#economy_title{
-    width: 100%;
-    text-align: center;
-    background-color: antiquewhite;
-    margin: 2em auto;
-    padding: 2em 5em;
-}
-
-#economy_title h2{
-    font-weight: 900;
-}
 
 #newsDiv{
     width: 80%;
@@ -17,10 +6,21 @@
     text-align: center;
 }
 
-#newsDiv .newsitem{            
-    width: 20%;
+#newsDiv .news-individual-articles{
+    width: 100%;
+    /* height: 20%; */
+    margin: 1em;
+}
+
+
+
+
+
+.news-individual-articles .newsitem{            
+    /* width: 20%;
     margin:2em 1.5em;
     text-align: center;
+    position: relative; */
 
 }
 
@@ -41,4 +41,44 @@
     font-size: 1em;
     font-family: sans-serif;
     padding: 0.5em 0;
+}
+
+/* .newsitem span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */
+
+@media only screen and (min-width: 375px) {
+    
+
+  
+}
+@media only screen and (min-width: 700px) {
+    #newsDiv .news-individual-articles{
+        width: 44%;
+        /* height: 20%; */
+        margin: 1em;
+    }
+    
+
+  
+}
+@media only screen and (min-width: 1080px) {
+    
+    #newsDiv .news-individual-articles{
+        width: 28%;
+        /* height: 20%; */
+        margin: 1em;
+    }
+  
+}
+@media only screen and (min-width: 1500px) {
+    
+    #newsDiv .news-individual-articles{
+        width: 20%;
+        height: 22%;
+        margin: 1em;
+    }
+  
 }

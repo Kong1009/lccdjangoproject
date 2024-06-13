@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+消費與儲蓄
+{% endblock %}
 {% block content %}
 <main>
     <div class="container-fluid px-4">
@@ -50,7 +53,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-chart-area me-1"></i>
-                        平均每人所得(年增率(%))
+                        消費與儲蓄折線圖
                     </div>
                     <div class="card-body" id="chart" data-chart-type="consumptionandsaving"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                 </div>
@@ -68,7 +71,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                就業與失業
+                國民消費與儲蓄圖表
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
