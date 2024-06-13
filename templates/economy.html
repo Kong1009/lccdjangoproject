@@ -19,10 +19,11 @@
             <div class="news_img">
                 <img src="{{ row.imglink }}">
             </div>
-
+            
             <div class="news_title">
                 {{ row.title }}
             </div>
+            <span>平台: {{row.platform}}</span>
         </a>
     {% endfor %}
 

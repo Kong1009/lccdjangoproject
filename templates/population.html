@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block title %}
+各產業就業狀況
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/industry.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">人口出生/死亡</h1>
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        各產業就業人口數(千)
+                    </div>
+                    <div class="card-body" id="chart" data-chart-type="population"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        各產業就業人口數(千)
+                    </div>
+                    <div class="card-body" id="chart" data-chart-type="population"><canvas id="myBreaChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                人口 出生/死亡 | 統計表
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>統計期</th>
+                            <th>出生人數(人)</th>
+                            <th>出生率</th>
+                            <th>男性出生人數(人)</th>
+                            <th>女性出生人數(人)</th>
+                            <th>死亡人數(人)</th>
+                            <th>死亡率</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>統計期</th>
+                            <th>出生人數(人)</th>
+                            <th>出生率</th>
+                            <th>男性出生人數(人)</th>
+                            <th>女性出生人數(人)</th>
+                            <th>死亡人數(人)</th>
+                            <th>死亡率</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for i in context.data %}
+                        <tr>
+                            <td>{{i.year}}</td>
+                            <td>{{i.Numberofbirths}}</td>
+                            <td>{{i.birthRate}}</td>
+                            <td>{{i.NumberofMaleBirths}}</td>
+                            <td>{{i.NumberofFemaleBirths}}</td>
+                            <td>{{i.NumberofDeaths}}</td>
+                            <td>{{i.mortalityRate}}</td>
+
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+    {% block scripts %}
+    <script id="year_xlabels" type="application/json">{{ context.year_xlabels|safe }}</script>
+
+    <script id="Numberofbirths" type="application/json">{{ context.Numberofbirths|safe }}</script>
+    <script id="birthRate" type="application/json">{{ context.birthRate|safe }}</script>
+    <script id="NumberofMaleBirths" type="application/json">{{ context.NumberofMaleBirths|safe }}</script>
+    <script id="NumberofFemaleBirths" type="application/json">{{ context.NumberofFemaleBirths|safe }}</script>
+    <script id="NumberofDeaths" type="application/json">{{ context.NumberofDeaths|safe }}</script>
+    <script id="mortalityRate" type="application/json">{{ context.mortalityRate|safe }}</script>
+    
+    
+    <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+    {% endblock %}
+
+
+{% endblock %}
+

@@ -24,6 +24,8 @@ app_name = 'myapp'
 
 urlpatterns = [
     url(r"^index/", views.index, name="home"),
+    
+    url(r"^population/", views.population, name = "population"),
     # url(r"^employmentPopulationByIndustry/", views.employmentPopulationByIndustry, name="employment"),
     url(r"^employmentandUnemployment/", views.employmentandUnemployment, name="employmentandUnemployment"),
     

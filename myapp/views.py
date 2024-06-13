@@ -99,13 +99,58 @@ def index(request):
 #     # return render(request, "test.html", {"context": context})
 
 
+def population(request):
+    csv_path = os.path.join(settings.BASE_DIR, 'static', 'csv/人口數.csv')
+    
+    data = pd.read_csv(csv_path, encoding="big5", skiprows=2)
+    
+    data = data.rename(columns={"統計期": "year",
+                                "出生人數(人) ": "Numberofbirths",
+                                "出生率": "birthRate",
+                                "男性出生人數(人) ": "NumberofMaleBirths",
+                                "女性出生人數(人) ": "NumberofFemaleBirths",
+                                "死亡人數(人) ": "NumberofDeaths",
+                                "死亡率": "mortalityRate"
+                                
+                                
+                                })
+    
+    year_xlabels = data["year"].to_list()
+    
+    Numberofbirths = data["Numberofbirths"].to_list()
+    
+    birthRate = data["birthRate"].to_list()
+    
+    NumberofMaleBirths = data["NumberofMaleBirths"].to_list()
+    
+    NumberofFemaleBirths = data["NumberofFemaleBirths"].to_list()
+    
+    NumberofDeaths = data["NumberofDeaths"].to_list()
+    
+    mortalityRate = data["mortalityRate"].to_list()
+    
+    
 
+    data = data.to_dict(orient="records")
+
+    context = {
+        "year_xlabels" : json.dumps(year_xlabels),
+        "Numberofbirths": json.dumps(Numberofbirths),
+        "birthRate": json.dumps(birthRate),
+        "NumberofMaleBirths": json.dumps(NumberofMaleBirths),
+        "NumberofFemaleBirths": json.dumps(NumberofFemaleBirths),
+        "NumberofDeaths": json.dumps(NumberofDeaths),
+        "mortalityRate": json.dumps(mortalityRate),
+        "data": data
+        }
+    
+    return render(request, "population.html", {"context": context})
 
     
 
 def Numberofpeopleemployedbyindustry(request): 
-    # 就業
-    csv_path2 = os.path.join(settings.BASE_DIR, 'static', '各產業就業人口.csv')
+    # 各產業就業
+    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'csv/各產業就業人口.csv')
     
     
     data = pd.read_csv(csv_path2, encoding="big5")
@@ -138,9 +183,11 @@ def Numberofpeopleemployedbyindustry(request):
                                   "藝術、娛樂及休閒服務業 ": "ArtsEntertainmentandLeisureServices",
                                   "其他服務業 ": "OtherServiceindustries",
     })
+    
+    
     year_xlabels = data['year'].astype(str).str.replace('.0', '年').tolist()
 
-    # year_xlabels = data['year'].tolist()
+
     print(year_xlabels)
     
     # 農、林、漁、牧業
@@ -201,10 +248,8 @@ def Numberofpeopleemployedbyindustry(request):
     OtherServiceindustries = data['OtherServiceindustries'].tolist()
     
     
-
-    
     data = data.to_dict(orient="records")
-    # # print(type(data2))
+
     context = {
         "year_xlabels" : json.dumps(year_xlabels),
         # 農、林、漁、牧業
@@ -230,21 +275,22 @@ def Numberofpeopleemployedbyindustry(request):
         
         # 醫療保健及社會工作服務業
         "HealthcareAndSocialWorkServicesIndustry": json.dumps(HealthcareAndSocialWorkServicesIndustry),
+        
+        #其他服務業
         "OtherServiceindustries": json.dumps(OtherServiceindustries),
 
         "data": data
         }
     
-    # print(data)
+
     return render(request, "employment.html", {"context": context})
-    # return render(request, "test.html", {"context": context})
-    # return HttpResponse("OK")
+
 
 
 
 def employmentandUnemployment(request): 
-    # 就業與失業
-    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'EmploymentAndUnemployment.csv')
+    # 就業與失業人數
+    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'csv/EmploymentAndUnemployment.csv')
     
 
     # 读取 CSV 文件
@@ -377,7 +423,7 @@ def employmentandUnemployment(request):
 
 # 六大消費之趨勢
 def cpi(request):
-    csv_path = os.path.join(settings.BASE_DIR, 'static', 'basicConsumerPriceIndex.csv')
+    csv_path = os.path.join(settings.BASE_DIR, 'static', 'csv/basicConsumerPriceIndex.csv')
 
     # 读取 CSV 文件
     data = pd.read_csv(csv_path, encoding="big5", skiprows=2)
@@ -445,8 +491,8 @@ def cpi(request):
 
 # 消費與儲蓄
 def consumptionandsaving(request):
-    csv_path1 = os.path.join(settings.BASE_DIR, 'static', 'NationalIncomeStatistics(perCapitaIncome).csv')
-    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'nationalIncome_SavingsAndInvestment.csv')
+    csv_path1 = os.path.join(settings.BASE_DIR, 'static', 'csv/NationalIncomeStatistics(perCapitaIncome).csv')
+    csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'csv/nationalIncome_SavingsAndInvestment.csv')
 
     # 读取 CSV 文件
     data1 = pd.read_csv(csv_path1, encoding="big5", skiprows=2)
