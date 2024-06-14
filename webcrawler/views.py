@@ -12,6 +12,7 @@ from news.models import News
 
 
 def craw104(request):
+    search =  request.GET.get('search', '')
         
     title_list = []
     link_list = []
@@ -21,7 +22,7 @@ def craw104(request):
     driver = webdriver.Chrome()
     
     for i in range(1, 3):    
-        url = "https://vip.104.com.tw/preLogin/recruiterForum/187/{}?search=就業".format(i)
+        url = "https://vip.104.com.tw/preLogin/recruiterForum/187/{}?search={}".format(i, search)
         driver.get(url)
         
         locator = (By.CLASS_NAME, 'recruiter-forum-listitem')

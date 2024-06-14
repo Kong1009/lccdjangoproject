@@ -5,7 +5,7 @@ from webcrawler import views
 urlpatterns = [
     
     
-    url(r"^craw104/", views.craw104),
+    url(r"^craw104/$", views.craw104),
     # url(r'^login/', TemplateView.as_view(template_name='login.html'), name = "login"),
     # url(r"^register/", TemplateView.as_view(template_name = "register.html"), name="register"),
     # url(r"^createMember/", views.createMember, name="creatMember"),

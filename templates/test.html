@@ -1,37 +1,8 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Employment Chart</h1>
-    <!-- 创建一个具有指定ID的div元素，用于渲染图表 -->
-    <div id="employment-chart"></div>
-
-    <script>
-        // Python 脚本中生成的数据，你可以将数据以 JSON 格式传递到此处
-        var employmentData = {
-            "industries": ["製造業", "批發及零售業", "農、林、漁、牧業", "營造業", "住宿及餐飲業", "教育服務業", "運輸及倉儲業", "醫療保健及社會工作服務業", "其他服務業"],
-            "values": [5000, 6000, 4000, 3000, 3500, 2000, 2500, 4500, 2800]
-        };
-
-        // 使用 Plotly.js 创建折线图
-        var trace = {
-            x: employmentData.industries,
-            y: employmentData.values,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: {
-                color: 'rgb(0, 0, 255)'
-            }
-        };
-        var layout = {
-            title: 'Employment by Industry',
-            xaxis: {
-                title: 'Industry'
-            },
-            yaxis: {
-                title: 'Number of Employees'
-            }
-        };
-        var data = [trace];
-        Plotly.newPlot('employment-chart', data, layout);
-    </script>
+    {% for r in data%}
+    {{ r.date}}
+    {% endfor%}
 {% endblock %}

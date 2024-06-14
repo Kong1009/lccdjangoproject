@@ -4,10 +4,7 @@ from .models import News
 
 # Create your views here.
 def economic_articles(request):
-    data = News.objects.order_by("?")
-    
-    
-    
+    data = News.objects.order_by("-date")    
     
     # 分頁
     paginator = Paginator(data, 20)
@@ -27,4 +24,5 @@ def economic_articles(request):
 
     
     return render(request, "economy.html", {"data": data, "venues": venues, "nums": nums, "datapages":datapages})
+    # return render(request, "test.html", {"data":data})
 
