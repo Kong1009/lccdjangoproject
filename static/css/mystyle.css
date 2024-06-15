@@ -207,6 +207,30 @@ img{
 
 
 
+@media only screen and (min-width: 375px) {
+
+    #about_us .memberDiv{
+        width: 100%;
+        margin: 1.5em
+    }
+
+}
+@media only screen and (min-width: 768px) {
+
+    #about_us .memberDiv{
+        width: 42%;
+        margin: 1.5em
+    }
+
+}
+@media only screen and (min-width: 1080px) {
+
+    #about_us .memberDiv{
+        width: 14%;
+        margin: 1.5em
+    }
+
+}
 @media only screen and (min-width: 2000px) {
 
     /* 首頁隨機文章 */
@@ -222,7 +246,6 @@ img{
         width: 40%;
         height: 20vh;
         margin: 1em auto;
-        /* background-color: red; */
     }
 
     .news .news_title{
@@ -241,16 +264,6 @@ img{
         height: 100%;
         object-fit: cover;
     }
-
-    /* #random_news .news_title{
-        width: 40%;
-        height: 5em;
-    }
-
-    #random_news .news_img{
-        width: 30%;
-        height: 5em;
-    } */
 
     .news .news_img img{
         height: 100%;
