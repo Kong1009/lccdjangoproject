@@ -10,7 +10,10 @@
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 {% endblock %}
 
+<!-- {% block header %}
 
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LestvgpAAAAAIINkXNCe_YrrwBRGLT45vc_Mled"></script>  
+{% endblock %} -->
 {% block content %}
 
 
@@ -28,31 +31,34 @@
                                             {% csrf_token %}
                                             <div class="form-floating mb-3">
                                                 {% if request.session.user_email %}
-                                                    <input class="form-control" name="email" type="email" value="{{ request.session.user_email }}" placeholder="name@gmail.com" />
+                                                    <input class="form-control" name="email" type="email" value="{{ request.session.user_email }}" placeholder="name@gmail.com" required/>
                                                 {% else %}
-                                                    <input class="form-control"  name="email" type="email" value="{{ form_data.email }}" placeholder="name@gmail.com" />
+                                                    <input class="form-control"  name="email" type="email" value="{{ form_data.email }}" placeholder="name@gmail.com" required/>
                                                 {% endif %}
                                                 <label for="inputEmail">Email</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="purpose" name="purpose" type="text" placeholder="主旨" />
+                                                <input class="form-control" id="purpose" name="purpose" type="text" placeholder="主旨" required/>
                                                 <label for="purpose">主旨</label>
                                             </div>
  
                                             <div class="form-check mb-3 mycontact">
-                                                <textarea id="content" name="content" placeholder="請輸入說明..."></textarea>
+                                                <textarea id="content" name="content" placeholder="請輸入說明..." required></textarea>
    
                                             </div>
 
                                             
+                                            
+                                            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                            <div class="g-recaptcha" data-theme="dark" data-sitekey="6LdMlvkpAAAAAI_jiKAzLnFEmWwufS1LfF_mlvUr"></div>
+                                            
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button class="btn btn-primary" type="submit">送出</button>
+         
                                             </div>
                                         </form>
                                     </div>
-                                    <!-- <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="{% url 'register' %}">沒有會員? 建立會員!</a></div>
-                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
@@ -61,4 +67,8 @@
             </div>
 
         </div>
+
+        {% block scripts %}
+
+        {% endblock %}
 {% endblock %}

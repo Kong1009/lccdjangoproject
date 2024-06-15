@@ -1,8 +1,22 @@
 
 {% extends 'base.html' %}
 
+{% block header %}
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LestvgpAAAAAIINkXNCe_YrrwBRGLT45vc_Mled"></script>
+
+{% endblock %}
+
+
 {% block content %}
-    {% for r in data%}
-    {{ r.date}}
-    {% endfor%}
+
+<div
+    class="g-recaptcha"
+    data-sitekey="網站金鑰"
+    data-theme="light" data-size="normal"
+    data-callback="verify"
+    data-expired-callback="expired"
+    data-error-callback="error">
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}
