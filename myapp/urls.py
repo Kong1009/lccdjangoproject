@@ -26,12 +26,11 @@ urlpatterns = [
     url(r"^index/", views.index, name="home"),
     
     url(r"^population/", views.population, name = "population"),
-    # url(r"^employmentPopulationByIndustry/", views.employmentPopulationByIndustry, name="employment"),
+    
     url(r"^employmentandUnemployment/", views.employmentandUnemployment, name="employmentandUnemployment"),
     
     # 就業
     url(r"^Numberofpeopleemployedbyindustry/", views.Numberofpeopleemployedbyindustry, name="Numberofpeopleemployedbyindustry"),
-    
     
     # 消費與儲蓄
     url(r"^consumptionandsaving/", views.consumptionandsaving, name="consumptionandsaving"),
@@ -39,6 +38,8 @@ urlpatterns = [
     # 六大消費
     url(r"^cpi/", views.cpi, name="cpi"),
     
+    # 人力資源
+    url(r"^humanResources/", views.humanResources, name = "humanResources"),
     
     url(r"^test/", views.test_csv),
     url("", views.index, name='home'),

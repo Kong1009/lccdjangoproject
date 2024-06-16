@@ -97,14 +97,14 @@
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{% url 'myapp:Numberofpeopleemployedbyindustry' %}">各產業就業人口狀況</a>
-                                            <a class="nav-link" href="#"><del style="color: red">失業狀況</del></a>                                            
+                                            <a class="nav-link" href="{% url 'myapp:humanResources' %}">失業狀況</a>
                                         </nav>
                                     </div>
 
                                 {# <a class="nav-link" href="{% url 'myapp:employment_unemployment' %}">各產業就業失業率</a>#}
 
 
-                                    <a class="nav-link" href="#"><del style="color: red">年收入分佈</del></a>
+                                    <!-- <a class="nav-link" href="#"><del style="color: red">年收入分佈</del></a> -->
                                     <a class="nav-link" href="{% url 'myapp:consumptionandsaving' %}">消費與儲蓄</a>
                                     <a class="nav-link" href="{% url 'myapp:cpi' %}">CPI(6大消費之趨勢)</a>
                                     <!-- <a class="nav-link" href="charts.html">test</a> -->
@@ -117,15 +117,15 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#"><del style="color: red">時事</del></a>
-                                    <a class="nav-link" href="#"><del style="color: red">國際</del></a>
-                                    <a class="nav-link" href="#"><del style="color: red">國內</del></a>
+                                    <a class="nav-link" href="{% url 'currentEvents' %}">時事</a>
+                                    <a class="nav-link" href="{% url 'internationality' %}">國際</a>
+                                    <a class="nav-link" href="{% url 'domestic' %}">國內</a>
                                     <a class="nav-link" href="{% url 'economic_articles' %}">經濟</a>
                                 </nav>
                             </div>
                             <div id="otherDiv">
                                 <div class="sb-sidenav-menu-heading">其他資訊</div>
-                                <a class="nav-link" href="#" disabled>
+                                <!-- <a class="nav-link" href="#" disabled>
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-handshake fa-2x"></i></div>
                                     <del disable style="color: red">幫助中心</del>
                                 </a>
@@ -136,7 +136,7 @@
                                 <a class="nav-link" href="#" disabled>
                                     <div class="sb-nav-link-icon"><i class="fa-solid fa-child-reaching fa-2x"></i></i></div>
                                     <del disable style="color: red">新手教學</del>
-                                </a>
+                                </a> -->
                                 <a class="nav-link" href="{% url 'about' %}" disabled>
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-address-card fa-2x"></i></div>
                                     關於我們
@@ -145,10 +145,10 @@
                                     <div class="sb-nav-link-icon"><i class="fa-solid fa-address-book fa-2x"></i></div>
                                     聯絡我們
                                 </a>
-                                <a class= "nav-link" href="#" disabled>
+                                <!-- <a class= "nav-link" href="#" disabled>
                                     <div class="sb-nav-link-icon"><i class="fa-regular fa-circle-question fa-2x"></i></div>
                                     <del style="color: red">FAQs</del>
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </div>

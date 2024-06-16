@@ -138,27 +138,14 @@ img{
     background-color: antiquewhite;
 }
 
-#about_us #member_inner{
-    /* max-width: 1080px; */
-    margin: 0 auto;
+#about_us p{
+    width: 80%;
+    margin: auto;
+    padding: 1.5em;
+    font-weight: 900;
+    font-size: 1.5em;
 }
 
-
-#about_us .memberDiv{
-    width: 10%;
-    margin: 1.5em
-}
- .memberDiv img{
-    width: 100%;
-}
-
-.memberDiv .introduction{
-    text-align: justify;
-}
-
-.memberDiv .member_Introduction{
-    margin: 1em 0;
-}
 
 #theme .slide .img:nth-of-type(1){
     background-image: url(https://picsum.photos/800/800?random=1);
@@ -209,26 +196,15 @@ img{
 
 @media only screen and (min-width: 375px) {
 
-    #about_us .memberDiv{
-        width: 100%;
-        margin: 1.5em
-    }
 
 }
 @media only screen and (min-width: 768px) {
 
-    #about_us .memberDiv{
-        width: 42%;
-        margin: 1.5em
-    }
 
 }
 @media only screen and (min-width: 1080px) {
 
-    #about_us .memberDiv{
-        width: 14%;
-        margin: 1.5em
-    }
+
 
 }
 @media only screen and (min-width: 2000px) {

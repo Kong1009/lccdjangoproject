@@ -5,6 +5,7 @@ from webcrawler import views
 urlpatterns = [
     
     
-    url(r"^craw104/$", views.craw104),
+    url(r"^crawler_104/$", views.crawler_104),
+    url(r"^crawler_yahoo/$", views.crawler_yahoo),
 
 ]

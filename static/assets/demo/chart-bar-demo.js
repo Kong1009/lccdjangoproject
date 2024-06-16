@@ -6,19 +6,58 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 document.addEventListener('DOMContentLoaded', function () {
   // 获取嵌入在 HTML 中的 JSON 数据
   var labels = JSON.parse(document.getElementById('year_xlabels').textContent);
-  var values = JSON.parse(document.getElementById('perCapitaIncome').textContent);
+  var Numberofbirths = JSON.parse(document.getElementById('Numberofbirths').textContent);
+  var birthRate = JSON.parse(document.getElementById('birthRate').textContent);
+  var NumberofMaleBirths = JSON.parse(document.getElementById('NumberofMaleBirths').textContent);
+  var NumberofFemaleBirths = JSON.parse(document.getElementById('NumberofFemaleBirths').textContent);
+  var NumberofDeaths = JSON.parse(document.getElementById('NumberofDeaths').textContent);
+  var mortalityRate = JSON.parse(document.getElementById('mortalityRate').textContent);   
+
+  var maxDataValue = Math.max(
+
+    Math.max(...NumberofFemaleBirths),
+    Math.max(...NumberofMaleBirths),
+
+    
+  );
+
+  var datasets;
+  datasets = [
+    {
+        label: "男生",
+        lineTension: 0.5,
+        backgroundColor: "blue",
+        borderColor: "blue",
+        pointRadius: 5,
+        pointBackgroundColor: "red",
+        pointBorderColor: "blue",
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(2,117,216,1)",
+        pointHitRadius: 50,
+        pointBorderWidth: 2,
+        data: NumberofMaleBirths,
+    },{
+      label: "女生",
+      lineTension: 0.5,
+      backgroundColor: "red",
+      borderColor: "red",
+      pointRadius: 5,
+      pointBackgroundColor: "red",
+      pointBorderColor: "red",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 50,
+      pointBorderWidth: 2,
+      data: NumberofFemaleBirths,
+  }
+  ]
 
   var ctx = document.getElementById("myBarChart");
   var myLineChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
-      datasets: [{
-        label: "平均每人所得(年)",
-        backgroundColor: "rgba(2,117,216,1)",
-        borderColor: "rgba(2,117,216,1)",
-        data: values,
-      }],
+      datasets: datasets
     },
     options: {
       scales: {
@@ -36,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         yAxes: [{
           ticks: {
             min: 0,
-            max: 15000,
+            max: maxDataValue,
             maxTicksLimit: 5
           },
           gridLines: {

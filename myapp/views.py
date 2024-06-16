@@ -130,7 +130,6 @@ def population(request):
     mortalityRate = data["mortalityRate"].to_list()
     
     
-
     data = data.to_dict(orient="records")
 
     context = {
@@ -534,6 +533,59 @@ def consumptionandsaving(request):
         "data2": data2.to_dict(orient="records")
         }
     return render(request, "consumptionandsaving.html", context)
+
+
+# 人力資源
+def humanResources(request):
+    csv_path = os.path.join(settings.BASE_DIR, 'static', 'csv/人力資源主要指標.csv')
+    
+
+    # 读取 CSV 文件
+    data = pd.read_csv(csv_path, encoding="big5", skiprows=2)
+
+    # data1=data1[:-3]
+    # data2=data2[:-6]
+
+    data = data.rename(columns={"統計期": "year",
+                                "總人口數(千人)-合計 ": "total_population",
+                                "勞動力(千人)-合計 ": "Laborforce_total",
+                                "勞動力(千人)-男 ": "Laborforce_male",
+                                "勞動力(千人)-女 ":"Laborforce_female",
+                                "就業人數(千人)-合計 ": "employedpopulation_total",                                
+                                "就業人數(千人)-男 ": "employedpopulation_male",
+                                "就業人數(千人)-女 ": "employedpopulation_female",
+                                "失業人數(千人)-合計 ": "Numberofunemployed_total",
+                                "勞動力參與率(%)-合計 ":"laborforceparticipationrate_total",
+                                "勞動力參與率(%)-男 ": "laborforceparticipationrate_male",                                
+                                "勞動力參與率(%)-女 ": "laborforceparticipationrate_female",
+                                "就業人口占總人口數(%)-合計 ":"EmployedpopulationAsAShareoftotalpopulation",
+                                "失業率(%)-合計": "unemploymentrate_total",})
+    
+    year_xlabels = data['year'].tolist()
+
+    
+    # 就業人數
+    employedpopulation_total = data["employedpopulation_total"].tolist()
+    
+    # 失業人數
+    Numberofunemployed_total = data["Numberofunemployed_total"].tolist()
+    
+    # # 線條3
+    # domesticInvestment = data2["domesticInvestment"].tolist()
+    
+    # # 線條4
+    # perCapitaIncome = data1['國民所得毛額GNI(名目值，百萬元)'].tolist()
+    # perCapitaIncome = [data.replace(",", "") for data in perCapitaIncome]
+    
+    
+    context = {
+        "year_xlabels" : json.dumps(year_xlabels),
+        "employedpopulation_total": json.dumps(employedpopulation_total),
+        "Numberofunemployed_total": json.dumps(Numberofunemployed_total),
+        "data": data.to_dict(orient="records"),
+        }
+    print(context["employedpopulation_total"])
+    return render(request, "humanResources.html", {"context": context})
 
 def test_csv(request):
     

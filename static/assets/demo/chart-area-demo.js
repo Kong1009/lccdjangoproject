@@ -230,34 +230,25 @@ document.addEventListener('DOMContentLoaded', function () {
             pointBorderWidth: 2,
             data: domesticInvestment_values,
         },
-          // 其他資料集...
       ];
   }
   else if (chartType === "population") {
     datasets = [
-        {
-            label: "死亡總數",
-            type: "line",
-            lineTension: 0.5,
-            backgroundColor: "rgba(2,117,216,0.2)",
-            borderColor: "red",
-            pointRadius: 5,
-            pointBackgroundColor: "red",
-            pointBorderColor: "rgba(255,255,255,0.8)",
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(2,117,216,1)",
-            pointHitRadius: 50,
-            pointBorderWidth: 2,
-            data: NumberofDeaths,
-        },
-        {
-          label: "出生總人數",
-          type: "bar",
-          backgroundColor: "rgba(75,192,192,0.2)",
-          borderColor: "rgba(75,192,192,1)",
-          borderWidth: 1,
-          data: birthRate,
-        }
+      {
+          label: "死亡總數",
+          type: "line",
+          lineTension: 0.5,
+          backgroundColor: "rgba(2,117,216,0.2)",
+          borderColor: "red",
+          pointRadius: 5,
+          pointBackgroundColor: "red",
+          pointBorderColor: "rgba(255,255,255,0.8)",
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "rgba(2,117,216,1)",
+          pointHitRadius: 50,
+          pointBorderWidth: 2,
+          data: NumberofDeaths,
+      }
 
     ];
   }

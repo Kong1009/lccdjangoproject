@@ -21,8 +21,8 @@ def createMember(request):
             'userEmail': email,
         }
         
-        pattern = "^\w+@\w+\.com$"
-        match = re.findall(pattern, email)
+        # pattern = "^\w+@\w+\.com$"
+        # match = re.findall(pattern, email)
     
 
         if password == checkpassword:
@@ -31,9 +31,10 @@ def createMember(request):
             if objects:
                 msg = email + "已存在"
             else:
-                # 使用 sha3_256 哈希加密密碼
+                # 使用 sha3_256 加密密碼
                 password = hashlib.sha3_256(password.encode(encoding='utf-8')).hexdigest()
-                # 創建會員
+                
+                # 新增至資料庫
                 member = Members(
                     username=username,
                     email=email,
@@ -45,9 +46,10 @@ def createMember(request):
 
                 msg = "恭喜您已註冊完成，請檢查您的郵箱以完成驗證。"
                 messages.success(request, "帳號註冊完成")
-                return redirect('myapp:home')  # 重定向到注册页面，以显示成功消息
+                return redirect('myapp:home')
         else:
-            msg = "請確認密碼是否一致!!!!"
+            messages.error(request, "請確認密碼是否一致!!!!")
+
 
 
     else:
