@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             label: "農、林、漁、牧業",
             lineTension: 0.5,
-            backgroundColor: "rgba(2,117,216,0.2)",
+            // backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "red",
             pointRadius: 5,
             pointBackgroundColor: "red",
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             label: "製造業",
             lineTension: 0.5,
-            backgroundColor: "rgba(2,117,216,0.2)",
+            backgroundColor: "rgba(2,117,216,0)",
             borderColor: "green",
             pointRadius: 5,
             pointBackgroundColor: "green",
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             label: "批發及零售業",
             lineTension: 0.5,
-            backgroundColor: "rgba(2,117,216,0.2)",
+            backgroundColor: "rgba(2,117,216,0.1)",
             borderColor: "yellow",
             pointRadius: 5,
             pointBackgroundColor: "yellow",
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "營造業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "blue",
           pointRadius: 5,
           pointBackgroundColor: "blue",
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "住宿及餐飲業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "Purple",
           pointRadius: 5,
           pointBackgroundColor: "Purple",
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "教育服務業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "orange",
           pointRadius: 5,
           pointBackgroundColor: "orange",
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "運輸及倉儲業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "gray",
           pointRadius: 5,
           pointBackgroundColor: "gray",
@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "醫療保健及社會工作服務業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "gold",
           pointRadius: 5,
           pointBackgroundColor: "gold",
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: "其他服務業",
           lineTension: 0.5,
-          backgroundColor: "rgba(2,117,216,0.2)",
+          backgroundColor: "rgba(2,117,216,0)",
           borderColor: "black",
           pointRadius: 5,
           pointBackgroundColor: "black",
