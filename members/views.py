@@ -29,7 +29,9 @@ def createMember(request):
             objects = Members.objects.filter(email=email).exists()
 
             if objects:
-                msg = email + "已存在"
+                messages.error(request, email+"已存在!!!!")
+                # return redirect('register')  # 返回註冊頁面以便用戶修正錯誤
+                # msg = email + "已存在"
             else:
                 # 使用 sha3_256 加密密碼
                 password = hashlib.sha3_256(password.encode(encoding='utf-8')).hexdigest()
@@ -53,10 +55,9 @@ def createMember(request):
 
 
     else:
-        msg = ""
         form_data = {}
 
-    return render(request, "register.html", {"msg": msg, "form_data": form_data})
+    return render(request, "register.html", {"form_data": form_data})
 
 def checklogin(request):
     if request.method == "POST":
@@ -64,6 +65,7 @@ def checklogin(request):
         password = request.POST.get("password")
         remember_account = request.POST.get('inputRememberEmail')
         password = hashlib.sha3_256(password.encode(encoding='utf-8')).hexdigest()
+        
 
         try:
             member = Members.objects.get(email = email)
