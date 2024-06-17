@@ -147,23 +147,18 @@ img{
 }
 
 
-#theme .slide .img:nth-of-type(1){
-    background-image: url(https://picsum.photos/800/800?random=1);
+#theme .slide .img:nth-of-type(1){    
 }
-#theme .slide .img:nth-of-type(2){
-    background-image: url(https://picsum.photos/800/800?random=2);
+#theme .slide .img:nth-of-type(2){    
     animation-delay: 5s;        
 }
-#theme .slide .img:nth-of-type(3){
-    background-image: url(https://picsum.photos/800/800?random=3); 
+#theme .slide .img:nth-of-type(3){    
     animation-delay: 10s;
 }
-#theme .slide .img:nth-of-type(4){
-    background-image: url(https://picsum.photos/800/800?random=4);
+#theme .slide .img:nth-of-type(4){    
     animation-delay: 15s;        
 }
-#theme .slide .img:nth-of-type(5){
-    background-image: url(https://picsum.photos/800/800?random=5);
+#theme .slide .img:nth-of-type(5){    
     animation-delay: 20s; 
 }
 

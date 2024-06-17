@@ -1,102 +1,18 @@
-from django.core.serializers.json import DjangoJSONEncoder
-from django.core.serializers import serialize
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.conf import settings
 import os
-
-from .models import National_Data
 from news.models import News
 import pandas as pd
 import json
 
 def index(request):
-    # newsdata = News.objects.all()
+    theme_news = News.objects.order_by("?")[:5]
     newsdata = News.objects.order_by("?")[:6]
 
     
-    return render(request, "index.html", {"newsdata": newsdata})
+    return render(request, "index.html", {"newsdata": newsdata, "theme_news": theme_news})
 
-# 存到資料庫的用法
-# def index(request):
-#     data = National_Data.objects.all()
-#     years = [entry.year for entry in data]
-#     AverageIncomePerson_annualGrowthRate = [entry.AverageIncomePerson_annualGrowthRate for entry in data]
-#     # AverageIncomePerson_annualGrowthRate = [int(entry.AverageIncomePerson_annualGrowthRate.replace(',', '')) for entry in data]
-    
-#     NationalIncome_nominalValue_millionYuan = [entry.AverageIncomePerson_nominalValue_millionYuan for entry in data]
-#     # NationalIncome_nominalValue_millionYuan = [int(entry.AverageIncomePerson_nominalValue_millionYuan.replace(',', '')) for entry in data]
-    
-#     context = {
-#         'years': json.dumps(years),
-#         'AverageIncomePerson_annualGrowthRate': json.dumps(AverageIncomePerson_annualGrowthRate),
-#         "NationalIncome_nominalValue_millionYuan": json.dumps(NationalIncome_nominalValue_millionYuan),
-#         'data': data
-#     }
-    
-#     return render(request, "test.html", context)
-    # return render(request, "index.html", context)
 
-# 就業與失業
-# def employment_unemployment(request):
-#     # 產業人數
-#     # csv_path1 = os.path.join(settings.BASE_DIR, 'static', 'industrial_people.csv')
-    
-#     # 男女就業與失業
-#     csv_path2 = os.path.join(settings.BASE_DIR, 'static', 'Employment and Unemployment.csv')
-    
-
-#     # 读取 CSV 文件
-#     # data1 = pd.read_csv(csv_path1, encoding="utf-8")
-    
-#     data2 = pd.read_csv(csv_path2, encoding="big5", skiprows=3)
-#     data2.rename(columns={data2.columns[0]: 'Year'}, inplace=True)
-#     print("old: ", data2)
-    
-#     # data1=data1[:-2]
-#     data2=data2[:-5]
-#     # print(data1)
-    
-#     # 就業與失業欄位整理
-#     data2 = data2.rename(columns={"男": "employedPopulation_male",
-#                                   "女": "employedPopulation_female",
-#                                   "男.1": "Numberofunemployed_male",
-#                                   "女.1": "Numberofunemployed_female",
-#                                   "男.2":"manpower_male",
-#                                   "女.2": "manpower_female",
-#                                   "男.3":"unemploymentRate_male",
-#                                   "女.3": "unemploymentRate_female"}
-#                          )
-#     print("new: ",data2)
-#     year_xlabels = data2['Year'].tolist()
-    
-#     # 線條1
-#     employedPopulation_male = data2["employedPopulation_male"].tolist()
-    
-#     # 線條2
-#     employedPopulation_female = data2["employedPopulation_female"].tolist()
-    
-#     # # 線條3
-#     domesticInvestment = data2["domesticInvestment"].tolist()
-    
-#     # # 線條4 - 人均收入
-#     # perCapitaIncome = data1['國民所得毛額GNI(名目值，百萬元)'].tolist()
-#     # perCapitaIncome = [data.replace(",", "") for data in perCapitaIncome]
-    
-#     data2 = data2.to_dict(orient="records")
-#     print(type(data2))
-#     context = {
-#     #     "year_xlabels" : json.dumps(year_xlabels),
-#     #     "nationalConsumption": json.dumps(nationalConsumption),
-#     #     "nationalSavings": json.dumps(nationalSavings),
-#     #     "domesticInvestment": json.dumps(domesticInvestment),
-#     #     "perCapitaIncome": json.dumps(perCapitaIncome),
-#     #     "data1": data1.to_dict(orient="records"),
-#         # "data2": data2.to_dict(orient="records"),
-#         "data2": data2
-#         }
-#     return render(request, "employment_unemployment.html", {"context": context})
-#     # return render(request, "test.html", {"context": context})
 
 
 def population(request):

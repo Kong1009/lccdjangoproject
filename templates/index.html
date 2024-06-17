@@ -21,7 +21,20 @@
     <!-- 輪播圖 -->
     <div id="theme">
         <div class="slide">
+            {% for t in theme_news %}
             <div class="img" title="圖片1">
+                <img src="{{t.imglink}}" alt="">
+                <div class="push">
+                    <h2>
+                        {{t.title}}
+                    </h2>
+                    <p>參考具備一句話世紀醫學下降加快，監督豐。</p>
+                    <a href="{{t.link}}" target="_blank" class="btn-theme">閱讀更多</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="img" title="圖片1">
                 <div class="push">
                     <h2>
                         隨機文章標題
@@ -29,10 +42,10 @@
                     <p>參考具備一句話世紀醫學下降加快，監督豐。</p>
                     <a href="#" class="btn-theme">閱讀更多</a>
                 </div>
-            </div>
+            </div> -->
             
             
-            <div class="img" title="圖片2">
+            <!-- <div class="img" title="圖片2">
                 <div class="push">
                     <h2>
                         隨機文章標題
@@ -73,7 +86,7 @@
                     <p>參考具備一句話世紀醫學下降加快，監督豐。</p>
                     <a href="#" class="btn-theme">閱讀更多</a>
                 </div>
-            </div>
+            </div> -->
             
         </div>
 
