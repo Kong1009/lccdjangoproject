@@ -139,9 +139,9 @@ img{
 }
 
 #about_us p{
-    width: 80%;
+    width: 50%;
     margin: auto;
-    padding: 1.5em;
+    padding: 0.5em;
     font-weight: 900;
     font-size: 1.5em;
 }
