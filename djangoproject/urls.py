@@ -20,11 +20,11 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='myapp/', permanent=True)),
     path("admin/", admin.site.urls),
     path("myapp/", include("myapp.urls")),
     path("members/", include("members.urls")),
     path("othersapp/", include("othersapp.urls")),
     path("news/", include("news.urls")),
     path("webcrawler/", include("webcrawler.urls")),
+    path('', RedirectView.as_view(url='myapp/', permanent=True)),
 ]

@@ -6,13 +6,12 @@ import pandas as pd
 import json
 
 def index(request):
+
     theme_news = News.objects.order_by("?")[:5]
     newsdata = News.objects.order_by("?")[:6]
 
     
     return render(request, "index.html", {"newsdata": newsdata, "theme_news": theme_news})
-
-
 
 
 def population(request):

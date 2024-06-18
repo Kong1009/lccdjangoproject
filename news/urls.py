@@ -14,4 +14,6 @@ urlpatterns = [
     
     # 國際
     url(r"^domestic/", views.domestic, name = "domestic"),
+    
+    url(r"^search_t/", views.search_t, name = "search_t")
 ]

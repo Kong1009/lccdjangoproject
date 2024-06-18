@@ -40,7 +40,6 @@ urlpatterns = [
     
     # 人力資源
     url(r"^humanResources/", views.humanResources, name = "humanResources"),
-    
     url(r"^test/", views.test_csv),
     url("", views.index, name='home'),
 ]

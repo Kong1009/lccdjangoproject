@@ -96,3 +96,10 @@ def domestic(request):
     
     return render(request, "domestic.html", {"data": data, "venues": venues, "nums": nums, "datapages":datapages})
 
+def search_t(request):
+    if request.method == "GET":
+        
+        search = request.GET.get("search_input")
+        data = News.objects.filter(title__icontains=search)
+        
+    return render(request, "search_page.html", {"data" : data})
