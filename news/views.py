@@ -102,4 +102,6 @@ def search_t(request):
         search = request.GET.get("search_input")
         data = News.objects.filter(title__icontains=search)
         
-    return render(request, "search_page.html", {"data" : data})
+        
+        
+    return render(request, "search_page.html", {"data" : data, "search": search})
